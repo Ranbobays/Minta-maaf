@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Maafin Aku Ya 🥺💗</title>
+
+    <style>
+        /* =========================
+           RESET & DASAR
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                #ffd6e7,
+                #fff0f6,
+                #ffdce9
+            );
+
+            overflow: hidden;
+            color: #6b3045;
+        }
+
+
+        /* =========================
+           HIASAN HATI
+        ========================= */
+
+        .heart {
+            position: fixed;
+            font-size: 25px;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .heart:nth-child(1) {
+            top: 10%;
+            left: 10%;
+        }
+
+        .heart:nth-child(2) {
+            top: 20%;
+            right: 12%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(4) {
+            bottom: 10%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+
+        /* =========================
+           HALAMAN AWAL
+        ========================= */
+
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           AMplOP
+        ========================= */
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+
+            margin: auto;
+
+            background: #ff8fb5;
+
+            border-radius: 15px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 15px 30px rgba(150, 60, 90, 0.2);
+
+            transition: 0.3s;
+        }
+
+        .envelope:hover {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+
+        /* Bagian penutup amplop */
+
+        .flap {
+            position: absolute;
+
+            width: 0;
+            height: 0;
+
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+
+            border-top: 100px solid #ffb3cb;
+
+            top: 0;
+            left: 0;
+        }
+
+
+        /* Surat kecil di dalam amplop */
+
+        .letter-preview {
+            position: absolute;
+
+            background: white;
+
+            width: 220px;
+            height: 130px;
+
+            top: 30px;
+            left: 40px;
+
+            border-radius: 10px;
+
+            padding: 20px;
+
+            font-size: 18px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+
+        /* =========================
+           SURAT
+        ========================= */
+
+        .letter-container {
+            display: none;
+
+            position: relative;
+
+            width: 90%;
+            max-width: 600px;
+
+            background: #fffafc;
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(120, 50, 80, 0.2);
+
+            animation: openLetter 0.8s ease;
+        }
+
+        @keyframes openLetter {
+            from {
+                opacity: 0;
+                transform: scale(0.7) rotate(-5deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        .letter-container h2 {
+            font-size: 35px;
+            margin-top: 0;
+        }
+
+        .letter-text {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           AKSESORIS LUCU
+        ========================= */
+
+        .sticker {
+            position: absolute;
+
+            font-size: 55px;
+
+            animation: bounce 2s infinite;
+        }
+
+        .sticker-one {
+            top: -35px;
+            left: -25px;
+        }
+
+        .sticker-two {
+            top: -30px;
+            right: -20px;
+        }
+
+        .sticker-three {
+            bottom: -30px;
+            left: -20px;
+        }
+
+        .sticker-four {
+            bottom: -30px;
+            right: -20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: rotate(-10deg);
+            }
+
+            50% {
+                transform: rotate(10deg) scale(1.1);
+            }
+        }
+
+
+        /* =========================
+           TOMBOL
+        ========================= */
+
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+
+            margin-top: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+            margin-top: 25px;
+
+            position: relative;
+
+            min-height: 70px;
+        }
+
+        button {
+            border: none;
+
+            padding: 15px 30px;
+
+            border-radius: 30px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .yes {
+            background: #ff6f9f;
+            color: white;
+
+            box-shadow: 0 8px 15px rgba(255, 80, 130, 0.3);
+        }
+
+        .yes:hover {
+            transform: scale(1.1);
+        }
+
+        .no {
+            background: white;
+
+            color: #ff5c8d;
+
+            border: 2px solid #ff9fbd;
+
+            position: relative;
+        }
+
+
+        /* =========================
+           PESAN SETELAH DIKLIK
+        ========================= */
+
+        .success {
+            display: none;
+
+            font-size: 28px;
+
+            margin-top: 25px;
+
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE HP
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .letter-container {
+                padding: 25px;
+            }
+
+            .letter-container h2 {
+                font-size: 28px;
+            }
+
+            .letter-text {
+                font-size: 16px;
+            }
+
+            .envelope {
+                width: 260px;
+                height: 170px;
+            }
+
+            .flap {
+                border-left-width: 130px;
+                border-right-width: 130px;
+            }
+
+            .letter-preview {
+                width: 190px;
+                left: 35px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HIASAN
+    ========================= -->
+
+    <div class="heart">💗</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💝</div>
+
+
+    <!-- =========================
+         HALAMAN AWAL
+    ========================= -->
+
+    <div class="container" id="home">
+
+        <h1>Maaf ya... 🥺💗</h1>
+
+        <p class="subtitle">
+            Ini aku kasih Ke kamuuu Sayanggggggggggg
+        </p>
+
+
+        <!-- Amplop -->
+
+        <div
+            class="envelope"
+            onclick="openLetter()"
+        >
+
+            <div class="flap"></div>
+
+            <div class="letter-preview">
+                💌<br>
+                Klik aku untuk membuka surat
+            </div>
+
+        </div>
+
+
+        <p>
+            👆 Klik amplopnya yaa...
+        </p>
+
+    </div>
+
+
+
+    <!-- =========================
+         SURAT
+    ========================= -->
+
+    <div class="letter-container" id="letter">
+
+        <!-- Aksesoris lucu -->
+
+        <div class="sticker sticker-one">
+            🐰
+        </div>
+
+        <div class="sticker sticker-two">
+            🧸
+        </div>
+
+        <div class="sticker sticker-three">
+            💕
+        </div>
+
+        <div class="sticker sticker-four">
+            🌷
+        </div>
+
+
+        <h2>
+            Maaf yaaa... 🥺
+        </h2>
+
+
+        <div class="letter-text">
+
+            <p>
+                Aku mau minta maaf ya sayang...
+            </p>
+
+            <p>
+                Aku tahu mungkin aku sering cuek,
+                bikin kamu kesel, atau bikin kamu
+                merasa kurang diperhatikan.
+            </p>
+
+            <p>
+                Aku benar-benar minta maaf.
+                Aku nggak bermaksud bikin kamu sedih.
+            </p>
+
+            <p>
+                Aku janji bakal berusaha lebih baik,
+                lebih perhatian, lebih ngerti kamu,
+                dan tentunya nggak cuekin kamu lagi. 🥺
+            </p>
+
+            <p>
+                Jadi...
+                kamu maafin aku nggak? 🥺👉👈
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             PILIHAN
+        ========================= -->
+
+        <div class="question">
+            Kamu maafin aku kan? 💗
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                class="yes"
+                onclick="forgive()"
+            >
+                IYAAAAA 💗
+            </button>
+
+
+            <button
+                class="no"
+                id="noButton"
+            >
+                ENGGAAA 😭
+            </button>
+
+        </div>
+
+
+        <!-- Pesan sukses -->
+
+        <div
+            class="success"
+            id="success"
+        >
+            YEAYYY! 🥳💗<br>
+            Makasih udah maafin aku! 🥺💕<br>
+            Aku sayang kamu sama Si Ireng Dan mujaer! 🫶
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /*
+        Membuka surat
+        */
+
+        function openLetter() {
+
+            document.getElementById("home").style.display = "none";
+
+            document.getElementById("letter").style.display = "block";
+
+        }
+
+
+
+        /*
+        Tombol ENGGAAA berpindah
+        */
+
+        const noButton =
+            document.getElementById("noButton");
+
+
+        noButton.addEventListener(
+            "mouseover",
+            moveButton
+        );
+
+
+        noButton.addEventListener(
+            "touchstart",
+            moveButton
+        );
+
+
+        function moveButton() {
+
+            const maxX =
+                window.innerWidth - noButton.offsetWidth - 30;
+
+            const maxY =
+                window.innerHeight - noButton.offsetHeight - 30;
+
+
+            const randomX =
+                Math.random() * maxX;
+
+            const randomY =
+                Math.random() * maxY;
+
+
+            noButton.style.position = "fixed";
+
+            noButton.style.left =
+                randomX + "px";
+
+            noButton.style.top =
+                randomY + "px";
+
+        }
+
+
+
+        /*
+        Ketika IYAAAA diklik
+        */
+
+        function forgive() {
+
+            document.getElementById("success")
+                .style.display = "block";
+
+            document.querySelector(".buttons")
+                .style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+</html>
